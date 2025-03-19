@@ -1,0 +1,7 @@
+if [ "$(whoami)" != "ubuntu" ]; then
+    exec sudo -u ubuntu "$0" "$@"
+    exit
+fi
+
+echo "Ahora soy $(whoami)"
+

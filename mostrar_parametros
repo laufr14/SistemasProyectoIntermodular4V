@@ -1,0 +1,23 @@
+#!/bin/bash
+contador=1
+for arg in "$@"; do
+echo "Parámetro $contador: $arg"
+((contador++))
+done
+echo "Número de parámetros recibidos: $#"
+echo "Todos los parámetros juntos (\$*): $*"
+echo "Todos los parámetros separados (\$@):$@"
+echo "Primer parámetro: $1"
+echo "Segundo parámetro: $2"
+echo "Tercer parámetro: $3"
+
+if [$# -ne 1 ]; then
+echo "Uso: $0 mostrar_parametros"
+exit 1
+fi
+
+if [ -f "$1" ]; then
+echo "El archivo '$1' existe."
+else
+echo "El archivo '$1' NO existe (como archivo)."
+fi

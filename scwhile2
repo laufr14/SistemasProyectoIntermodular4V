@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Verificar si se pasaron parámetros
+if [ "$#" -eq 0 ]; then
+    echo "Error: Debes pasar al menos un parámetro."
+    exit 1
+fi
+
+# Bucle para procesar cada parámetro
+while [ "$#" -gt 0 ]; do
+    param="$1"  # Tomamos el primer parámetro
+
+    # Comprobar si es un archivo
+    if [ -f "$param" ]; then
+        echo "$param es un archivo."
+    # Comprobar si es un directorio
+    elif [ -d "$param" ]; then
+        echo "$param es un directorio."
+    # Si no es ni archivo ni directorio
+    else
+        echo "$param no es ni un archivo ni un directorio."
+    fi
+
+    # Desplazamos los parámetros hacia la izquierda
+    shift
+done

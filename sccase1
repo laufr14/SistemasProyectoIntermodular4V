@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Verificar que se ha pasado un único parámetro
+if [ $# -ne 1 ]; then
+    echo "Error: Debes proporcionar un único archivo como parámetro."
+    echo "Uso: ./sccase1 nombre_archivo"
+    exit 1
+fi
+
+archivo="$1"  # Guardamos el nombre del archivo pasado como parámetro
+
+# Verificar si el archivo existe en el directorio actual
+if [ ! -f "$archivo" ]; then
+    echo "Error: El archivo '$archivo' no existe en el directorio actual."
+    exit 1
+fi
+
+# Mostrar el menú de opciones
+while true; do
+    echo "-------------------------------"
+    echo "1- Mostrar contenido del fichero paginado"
+    echo "2- Copiar el fichero a otro directorio"
+    echo "3- Salir"
+    echo "-------------------------------"
+    read -p "Opción deseada: " opcion
+
+    case $opcion in
+        1)
+            echo "Mostrando el contenido de '$archivo':"
+            cat "$archivo" | more  # Muestra el contenido paginado
+            ;;
+        2)
+            read -p "Introduce el nombre del directorio destino: " directorio
+            
+            # Verificar si el directorio existe
+            if [ ! -d "$directorio" ]; then
+                echo "El directorio no existe. Creándolo..."
+                mkdir -p "$directorio"
+            fi
+
+            # Copiar el archivo al directorio
+            cp "$archivo" "$directorio/"
+            echo "Archivo copiado a '$directorio/'."
+            ;;
+        3)
+            echo "Saliendo del script."
+            exit 0
+            ;;
+        *)
+            echo "Opción no válida. Inténtalo de nuevo."
+            ;;
+    esac
+done

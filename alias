@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ dir='ls -F'
+ fecha='date'
+ calendario='cal 2000'
+ copiar='cp'
+
+echo "Los alias son:$dir, $fecha, $calendario, $copiar."
+

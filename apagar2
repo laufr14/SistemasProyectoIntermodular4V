@@ -1,0 +1,15 @@
+#!/bin/bash
+
+yo=$(whoami)
+if [ $yo = root ]
+then
+
+echo "haría un halt"
+
+else
+
+echo "no eres root no puedes"
+      exit 1
+
+
+fi

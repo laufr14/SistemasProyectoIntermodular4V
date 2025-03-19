@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Pedir al usuario un número del 1 al 7
+read -p "Introduce un número (1-7) para obtener el día de la semana: " num_dia
+
+# Comparar el número con los días de la semana
+case $num_dia in
+    1) echo "📅 Lunes" ;;
+    2) echo "📅 Martes" ;;
+    3) echo "📅 Miércoles" ;;
+    4) echo "📅 Jueves" ;;
+    5) echo "📅 Viernes" ;;
+    6) echo "🎉 Sábado" ;;
+    7) echo "🎉 Domingo" ;;
+    *) echo "❌ Error: Debes ingresar un número del 1 al 7." ;;
+esac

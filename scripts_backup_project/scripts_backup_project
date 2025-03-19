@@ -1,0 +1,52 @@
+#!/bin/bash
+
+#Función para mostrar menú 
+
+mostrar_menu() {
+clear
+echo "=========================="
+echo " 🚀 ADMINISTRACIÓN DEL SISTEMA 🚀 "
+echo "==================================="
+echo "1) Monitorizar el sistema"
+echo "2) Gestión de usuarios"
+echo "3) Seguridad y red"
+echo "4) Copias de seguridad"
+echo "5) Salir"
+echo "==================================="
+echo -n "Selecciona una opción: "
+
+}
+
+#Bucle del menú
+
+while true; do
+   mostrar_menu
+   read opcion
+
+case $opcion in
+         1)
+            echo "Ejecutando monitorización..."
+           ./monitor.sh  # Llama al script de monitorización
+            ;;
+        2)
+            echo "Ejecutando gestión de usuarios..."
+            ./usuarios.sh  # Llama al script de usuarios
+            ;;
+        3)
+            echo "Ejecutando seguridad y red..."
+            ./seguridad.sh && ./red.sh  # Llama a los scripts de seguridad y red
+            ;;
+        4)
+            echo "Ejecutando copia de seguridad..."
+            ./backup.sh  # Llama al script de backup
+            ;;
+        5)
+            echo "Saliendo..."
+            exit 0
+            ;;
+        *)
+            echo "❌ Opción no válida. Intenta de nuevo."
+            sleep 1
+            ;;
+    esac
+done

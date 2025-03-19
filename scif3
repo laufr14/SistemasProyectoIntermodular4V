@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Solicitar la fecha de la copia de segurirad (DD-MM-YYYY): " fecha_ingresada
+
+read -p "Introduce la fecha de la copia de seguridad (DD-MM-YYYY): " fecha_ingresada
+
+
+#Obtener la fecha actual del sistema 
+fecha_actual=$(date +"%d-%m-%Y")
+
+#Comprobar fechas 
+if [ "$fecha_ingresada" == "$fecha_actual" ]; then
+echo "Hoy es la fecha programada para la copia de seguridad."
+
+
+#Enviar email al usuario root
+echo "Hoy ($fecha_actual) debe realizarse la copia de seguridad del servidor" | mail -s "Recordatorio: Copia de seguridad" root 
+
+echo "Correo enviado al root notificando la copia de seguridad."
+
+
+else
+
+echo "No es el día programado para la copia de seguridad."
+
+fi
+

@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Obtener el día de la semana en formato numérico (1=lunes, 7=domingo)
+dia_actual=$(date +"%u")
+
+# Definir el horario según el día de la semana
+case $dia_actual in
+    1)  # Lunes
+        echo "📅 Hoy es Lunes"
+        echo "📚 Horario de clases:"
+        echo "08:00 - 09:30 → Programación"
+        echo "09:30 - 11:00 → Base de Datos"
+        echo "11:30 - 13:00 → Redes"
+        ;;
+    2)  # Martes
+        echo "📅 Hoy es Martes"
+        echo "📚 Horario de clases:"
+        echo "08:00 - 09:30 → Desarrollo Web"
+        echo "09:30 - 11:00 → Sistemas Operativos"
+        ;;
+    3)  # Miércoles
+        echo "📅 Hoy es Miércoles"
+        echo "📚 Horario de clases:"
+        echo "08:00 - 09:30 → Programación"
+        echo "09:30 - 11:00 → Base de Datos"
+        ;;
+    4)  # Jueves
+        echo "📅 Hoy es Jueves"
+        echo "📚 Horario de clases:"
+        echo "08:00 - 09:30 → Redes"
+        echo "09:30 - 11:00 → Sistemas Operativos"
+        ;;
+    5)  # Viernes
+        echo "📅 Hoy es Viernes"
+        echo "📚 Horario de clases:"
+        echo "08:00 - 09:30 → Desarrollo Web"
+        echo "09:30 - 11:00 → Proyecto Final"
+        ;;
+    6|7)  # Sábado o Domingo
+        echo "🎉 Hoy es fin de semana, ¡no hay clases!"
+        ;;
+    *)
+        echo "❌ Error al obtener el día de la semana."
+        ;;
+esac

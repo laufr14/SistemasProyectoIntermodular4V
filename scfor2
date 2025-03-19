@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Comprobación de que se ha pasado un parámetro
+if [[ $# -ne 1 ]]; then
+    echo "Uso: $0 <palabra_a_buscar>"
+    exit 1
+fi
+
+palabra="$1"
+
+# Recorremos todos los archivos del directorio actual
+for archivo in *; do
+    # Verificar si es un archivo regular
+    if [[ -f "$archivo" ]]; then
+        # Buscar la palabra en el archivo
+        resultado=$(grep -n "$palabra" "$archivo")
+
+        if [[ -n "$resultado" ]]; then
+            echo "🔍 Coincidencias en el archivo '$archivo':"
+            echo "$resultado"
+            echo "----------------------------------"
+        else
+            echo "❌ No se encontró '$palabra' en '$archivo'."
+        fi
+    fi
+done

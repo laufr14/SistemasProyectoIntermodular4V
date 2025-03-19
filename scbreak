@@ -1,0 +1,15 @@
+#!/bin/bash
+
+contador=1  # Inicializamos el contador
+
+while true; do
+    echo "Vuelta número: $contador"  # Mostramos la vuelta actual
+
+    if [ "$contador" -eq 6 ]; then
+        echo "¡Se ha alcanzado la 6ª vuelta! Saliendo del bucle..."
+        break  # Rompe el bucle cuando llega a la vuelta 6
+    fi
+
+    ((contador++))  # Incrementamos el contador
+    sleep 1  # Espera 1 segundo antes de la siguiente vuelta (opcional)
+done

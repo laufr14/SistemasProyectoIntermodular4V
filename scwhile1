@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Verificamos si el número de parámetros es correcto
+if [ "$#" -ne 1 ]; then
+    echo "Error: Debes pasar un archivo como parámetro."
+    exit 1
+fi
+
+# Verificamos si el archivo existe en el directorio actual
+if [ ! -f "$1" ]; then
+    echo "Error: El archivo '$1' no existe en el directorio actual."
+    exit 1
+fi
+
+# Menú en bucle hasta que se elija la opción 3 (Salir)
+while true; do
+    # Mostrar menú
+    echo "1- Mostrar contenido del fichero paginado"
+    echo "2- Copiar el fichero a otro directorio"
+    echo "3- Salir"
+    echo -n "Opción deseada: "
+    read opcion
+
+    case $opcion in
+        1)
+            # Mostrar el contenido del fichero paginado
+            cat "$1" | more
+            ;;
+        2)
+            # Solicitar el nombre del directorio donde se quiere copiar el archivo
+            echo -n "Introduce el nombre del directorio donde quieres copiar el fichero: "
+            read dir
+
+            # Verificar si el directorio existe
+            if [ -d "$dir" ]; then
+                cp "$1" "$dir"
+                echo "El archivo '$1' ha sido copiado a '$dir'."
+            else
+                # Crear el directorio si no existe
+                mkdir -p "$dir"
+                cp "$1" "$dir"
+                echo "El directorio '$dir' no existía, pero se ha creado y el archivo '$1' ha sido copiado."
+            fi
+            ;;
+        3)
+            # Salir del script
+            echo "Saliendo..."
+            break
+            ;;
+        *)
+            # Opción no válida
+            echo "Opción no válida. Intenta nuevamente."
+            ;;
+    esac
+done

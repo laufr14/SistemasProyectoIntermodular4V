@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Definir la contraseña correcta
+contrasena_correcta="mi_contraseña"
+
+# Definir el número máximo de intentos
+intentos_maximos=5
+intentos=0
+
+# Bucle para pedir la contraseña hasta que sea correcta o se alcance el número máximo de intentos
+until [ "$intentos" -ge "$intentos_maximos" ]; do
+    # Solicitar la contraseña al usuario
+    echo -n "Introduce la contraseña: "
+    read -s contrasena_usuario  # La opción -s hace que la contraseña no se muestre en la terminal
+
+    # Comprobar si la contraseña es correcta
+    if [ "$contraseña_usuario" == "$contraseña_correcta" ]; then
+        # Si la contraseña es correcta, mostramos un mensaje de bienvenida con el nombre del usuario
+        nombre_usuario=$(who am i | awk '{print $1}')
+        echo -e "\nBienvenido, $nombre_usuario al sistema."
+        exit 0
+    else
+        # Si la contraseña es incorrecta, incrementamos el contador de intentos
+        ((intentos++))
+        echo -e "\nContraseña incorrecta. Intento $intentos de $intentos_maximos."
+    fi
+done
+
+# Si se superan los intentos, mostramos un mensaje de error y terminamos
+echo "Número máximo de intentos alcanzado. El script se cerrará."
+exit 1

@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Directorio de la papelera
+papelera="$HOME/papelera"
+
+# Verificar si el directorio papelera existe, si no, crear uno
+if [ ! -d "$papelera" ]; then
+  mkdir "$papelera"
+fi
+
+# Función para mostrar el contenido de la papelera
+mostrar_contenido() {
+  echo "Contenido de la papelera:"
+  ls "$papelera"
+}
+
+# Función para eliminar todos los archivos de la papelera
+borrar_papelera() {
+  echo "Eliminando todos los archivos de la papelera..."
+  rm -rf "$papelera"/*
+}
+
+# Función para mover los archivos a la papelera
+mover_a_papelera() {
+  for archivo in "$@"; do
+    if [ -e "$archivo" ]; then
+      # Mover archivo a la papelera
+      mv "$archivo" "$papelera"
+      echo "Archivo '$archivo' movido a la papelera."
+    else
+      echo "Archivo '$archivo' no encontrado."
+    fi
+  done
+}
+
+# Opciones
+while getopts ":vb" opt; do
+  case $opt in
+    v)
+      mostrar_contenido
+      exit 0
+      ;;
+    b)
+      borrar_papelera
+      exit 0
+      ;;
+    \?)
+      echo "Opción no válida: -$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
+
+# Si no se proporcionaron opciones, mover los archivos a la papelera
+shift $((OPTIND -1))
+
+if [ $# -eq 0 ]; then
+  echo "Debe especificar al menos un archivo."
+  exit 1
+else
+  mover_a_papelera "$@"
+fi

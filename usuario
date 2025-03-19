@@ -1,0 +1,28 @@
+#!/bin/bash
+pintar ()
+{
+clear
+tput setab $1
+tput setaf $2
+clear
+}
+#pintar 4 6 
+#echo "Se va a comprobar si un nombre está registrado en el sistema"
+#echo "Introduce nombre"
+#read nom
+
+nom=$(dialog --stdout  --inputbox "Introduce nombre usuario" 0 0)
+id $nom >/dev/null 2>/dev/null
+crid=$?
+clear
+if [ $crid -eq 0 ]
+then
+for i in 10 20 50 80 100
+do
+echo $i
+sleep 2
+done| dialog --gauge "Identificando usuario" 0 0
+echo "El usuario $nom existe"
+else
+echo "El usuario $nom no existe"
+fi

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Paso 1: Solicitar el nombre del archivo hasta que exista y no esté vacío
+while true; do
+    read -p "Introduce el nombre del archivo con el mensaje: " archivo
+
+    if [[ -f "$archivo" && -s "$archivo" ]]; then
+        break  # Si el archivo existe y no está vacío, salimos del bucle
+    else
+        echo "El archivo no existe o está vacío. Inténtalo de nuevo."
+    fi
+done
+
+# Paso 2: Solicitar la lista de usuarios
+read -p "Introduce la lista de usuarios (separados por espacios): " usuarios
+
+# Paso 3: Comprobar si los usuarios existen en el sistema
+for usuario in $usuarios; do
+    if id "$usuario" &>/dev/null; then
+        echo "Enviando mensaje a $usuario..."
+        mail -s "Mensaje del sistema" "$usuario" < "$archivo"
+    else
+        echo "El usuario '$usuario' no existe en el sistema."
+    fi
+done
+
+echo "Proceso completado."

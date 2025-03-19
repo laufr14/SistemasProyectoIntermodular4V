@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Verifica si el número de parámetros es exactamente 3
+if [ $# -ne 3 ]; then
+    echo "Error: Se deben pasar exactamente 3 parámetros."
+    exit -1  # Salir con un código de error negativo (equivale a 255)
+fi
+
+# Si los parámetros son correctos, mostrar un mensaje
+echo "Número de parámetros correcto. Continuando ejecución..."

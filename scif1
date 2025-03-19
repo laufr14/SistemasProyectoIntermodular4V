@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+ 
+
+if [ -e /etc/hosts ];
+then
+echo "-------------------------------------"
+echo "El fichero existe dentro del sistema"
+cat $/etc/hosts
+echo "---------------------------------------"
+else
+   echo "El fichero $FICHERO no existe en el sistema"
+fi
+

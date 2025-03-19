@@ -1,0 +1,40 @@
+2025-03-18 10:14:20.577 [info] Extension host with pid 3478 started
+2025-03-18 10:14:20.734 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-03-18 10:14:20.843 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-03-18 10:14:20.845 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-03-18 10:14:21.544 [info] Eager extensions activated
+2025-03-18 10:14:21.545 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-03-18 10:14:21.548 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-03-18 10:14:22.909 [info] Extension host terminating: received terminate message from renderer
+2025-03-18 10:14:23.145 [error] ProxyResolver#addCertificatesV1 Canceled: Canceled
+	at new dR (file:///home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/out/vs/workbench/api/node/extensionHostProcess.js:29:155028)
+	at qy.U (file:///home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/out/vs/workbench/api/node/extensionHostProcess.js:29:159639)
+	at s.<computed>.n.charCodeAt.s.<computed> (file:///home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/out/vs/workbench/api/node/extensionHostProcess.js:29:157133)
+	at cw.loadCertificates (file:///home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/out/vs/workbench/api/node/extensionHostProcess.js:109:55027)
+	at Object.loadAdditionalCertificates (file:///home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/out/vs/workbench/api/node/extensionHostProcess.js:174:18948)
+	at /home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:723:53
+	at Generator.next (<anonymous>)
+	at /home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:35:71
+	at new Promise (<anonymous>)
+	at __awaiter (/home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:31:12)
+	at /home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:722:43
+	at /home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:724:16
+	at Generator.next (<anonymous>)
+	at /home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:35:71
+	at new Promise (<anonymous>)
+	at __awaiter (/home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:31:12)
+	at getOrLoadAdditionalCertificates (/home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:720:12)
+	at addCertificatesToOptionsV1 (/home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:699:9)
+	at resolveProxyWithRequest (/home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:114:9)
+	at /home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:346:77
+	at new Promise (<anonymous>)
+	at PacProxyAgent.resolveP [as resolver] (/home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/index.js:346:54)
+	at PacProxyAgent.<anonymous> (/home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/agent.js:74:37)
+	at Generator.next (<anonymous>)
+	at /home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/agent.js:8:71
+	at new Promise (<anonymous>)
+	at __awaiter (/home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/agent.js:4:12)
+	at PacProxyAgent.connect (/home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/@vscode/proxy-agent/out/agent.js:56:16)
+	at /home/laufr14/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node_modules/agent-base/dist/index.js:132:30
+	at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-03-18 10:14:23.146 [info] Extension host with pid 3478 exiting with code 0

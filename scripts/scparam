@@ -1,0 +1,7 @@
+#!/bin/bash
+#este script muestra el uso de parámetros
+echo "Este es el nombre del script (posicón0): $0"
+echo "Este es el primer parámetro (posición1): $1"
+echo "Este es el segundo parámetro (posición2): $2"
+echo "Me han pasado $# parámetros" 
+echo "La lista de todos los parámetros es $*"

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Inicializar contadores
+contador_ficheros=0
+contador_directorios=0
+contador_total=0
+
+# Verificar si se pasaron parámetros
+if [ "$#" -eq 0 ]; then
+    echo "Error: Debes pasar al menos un parámetro."
+    exit 1
+fi
+
+# Bucle para procesar cada parámetro
+while [ "$#" -gt 0 ]; do
+    param="$1"  # Tomamos el primer parámetro
+
+    # Comprobar si es un archivo
+    if [ -f "$param" ]; then
+        ((contador_ficheros++))
+    # Comprobar si es un directorio
+    elif [ -d "$param" ]; then
+        ((contador_directorios++))
+    fi
+
+    # Incrementar el contador total de parámetros
+    ((contador_total++))
+
+    # Desplazamos los parámetros hacia la izquierda
+    shift
+done
+
+# Mostrar los resultados
+echo "Número total de parámetros: $contador_total"
+echo "Número de ficheros: $contador_ficheros"
+echo "Número de directorios: $contador_directorios"
+

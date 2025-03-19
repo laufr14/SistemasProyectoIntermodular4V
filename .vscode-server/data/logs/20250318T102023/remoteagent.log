@@ -1,0 +1,17 @@
+2025-03-18 10:20:23.795 [info] 
+
+
+
+
+2025-03-18 10:20:23.824 [info] Extension host agent started.
+2025-03-18 10:20:24.049 [info] [127.0.0.1][01d83514][ManagementConnection] New connection established.
+2025-03-18 10:20:24.755 [info] [127.0.0.1][6ae20832][ExtensionHostConnection] New connection established.
+2025-03-18 10:20:24.777 [info] [127.0.0.1][6ae20832][ExtensionHostConnection] <5733> Launched Extension Host Process.
+2025-03-18 10:23:49.172 [info] [127.0.0.1][6ae20832][ExtensionHostConnection] The client has reconnected.
+2025-03-18 10:23:49.830 [info] [127.0.0.1][01d83514][ManagementConnection] The client has reconnected.
+2025-03-18 11:42:06.294 [info] [127.0.0.1][01d83514][ManagementConnection] The client has reconnected.
+2025-03-18 11:42:11.035 [info] [127.0.0.1][6ae20832][ExtensionHostConnection] The client has reconnected.
+2025-03-18 11:51:03.328 [info] [127.0.0.1][01d83514][ManagementConnection] The client has reconnected.
+2025-03-18 11:51:07.050 [info] [127.0.0.1][6ae20832][ExtensionHostConnection] The client has reconnected.
+2025-03-18 12:20:11.844 [info] [127.0.0.1][01d83514][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2025-03-18 12:20:13.441 [info] [127.0.0.1][6ae20832][ExtensionHostConnection] <5733> Extension Host Process exited with code: 0, signal: null.

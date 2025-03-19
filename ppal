@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Este es el script principal" 
+echo "Elige opción:"
+echo "1-Mostrar quién soy"
+echo "2-Apagar el sistema!"
+echo "Introduce opción"
+read op
+case $op in
+1) ./quiensoy;;
+2) ./apagar2;;
+*) echo "Has introducido una opción incorrecta"
+esac

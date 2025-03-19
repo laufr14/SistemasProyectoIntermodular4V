@@ -1,0 +1,20 @@
+ #!/bin/bash
+
+#Comprobamos si se ha pasado un solo parámetro
+
+if [ "S#" -ne 1 ]; then 
+echo "Uso: $0 <programadorc>"
+exit 1
+fi
+
+directorio="$1"
+
+#Comprobamos si el directorio existe 
+if [ -d "$directorio" ]; then
+echo "El directorio '$directorio' ya existe."
+else
+#Creamos el directorio con persmisos solo para el propietario
+mkdir "$directorio"
+chmod 700 "$directorio"
+echo "El directorio '$directorio' ha sido creado con permisos restringidos."
+fi  

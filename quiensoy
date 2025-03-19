@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "El usuario que ejecuta es $(whoami)"
+
+

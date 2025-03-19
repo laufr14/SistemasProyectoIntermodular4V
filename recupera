@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Directorio de la papelera (donde se encuentran los archivos eliminados)
+papelera="$HOME/papelera"
+
+# Comprobar si el directorio de la papelera existe
+if [ ! -d "$papelera" ]; then
+  echo "Error: La papelera no existe."
+  exit 1
+fi
+
+# Opción para recuperar todo el contenido de la papelera
+recuperar_todo=false
+
+# Procesar las opciones (solo -t en este caso)
+while getopts ":t" opt; do
+  case $opt in
+    t)
+      recuperar_todo=true
+      ;;
+    \?)
+      echo "Opción no válida: -$OPTARG"
+      exit 1
+      ;;
+  esac
+done
+
+# Descartar las opciones del parámetro para quedarse solo con los archivos a recuperar
+shift $((OPTIND - 1))
+
+# Recuperar todos los archivos si se especificó la opción -t
+if $recuperar_todo; then
+  echo "Recuperando todos los archivos de la papelera..."
+  for archivo in "$papelera"/*; do
+    if [ -e "$archivo" ]; then
+      # Recuperar el archivo (moverlo a su ubicación original)
+      mv "$archivo" .
+      echo "Archivo '$archivo' recuperado."
+    fi
+  done
+  exit 0
+fi
+
+# Recuperar archivos específicos si son proporcionados como parámetros
+for archivo in "$@"; do
+  if [ -e "$papelera/$archivo" ]; then
+    # Recuperar el archivo (moverlo a su ubicación original)
+    mv "$papelera/$archivo" .
+    echo "Archivo '$archivo' recuperado."
+  else
+    echo "Error: El archivo '$archivo' no existe en la papelera."
+  fi
+done

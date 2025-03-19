@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Verifica que al menos se pase un parámetro
+if [ $# -eq 0 ]; then
+    echo "Uso: $0 archivo1 archivo2 ..."
+    exit 1
+fi
+
+# Recorremos todos los parámetros pasados al script
+for item in "$@"; do
+    if [ -d "$item" ]; then
+        continue  # Si es un directorio, lo ignora y pasa al siguiente parámetro
+    fi
+
+    if [ -e "$item" ]; then
+        ls -l "$item"  # Muestra la información del archivo
+    else
+        echo "El archivo '$item' no existe."
+    fi
+done
